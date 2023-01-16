@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div id="contents">
+    <p>{{props.msg}}</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+        {% for user in user %}
+        <tr>
+            <td><a href="./users/{{user[0]}}">{{user[0]}}</a></td>
+            <td>{{user[1]}}</td>
+            <td>{{user[2]}}</td>
+            <td>{{user[3]}}</td>
+        </tr>
+        <tr>
+            {{user[4]|safe}}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<hr>
+<a href="/">Home</a>
+{% endblock %}
