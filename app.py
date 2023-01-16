@@ -1,31 +1,21 @@
 from flask import Flask, render_template, url_for, redirect
 from DataStore.MySQL import MySQL
 import os
-from flask_wtf.csrf import CSRFProtect
 from dotenv import load_dotenv
 load_dotenv()
 
 
-# dns = {
-#     'host': os.getenv("HOST"),
-#     'user': os.getenv("USERNAME"),
-#     'passwd': os.getenv("PASSWORD"),
-#     'db': os.getenv("DATABASE"), 
-# }
 dns = {
-    'user': 'mysql',
-    'host': 'localhost',
-    'password': '123abc',
-    'database': 'kaggle'
+    'host': os.getenv("HOST"),
+    'user': os.getenv("USERNAME"),
+    'passwd': os.getenv("PASSWORD"),
+    'db': os.getenv("DATABASE"), 
 }
 
 db = MySQL(**dns)
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(24) #セッション情報を暗号化するための設定
-csrf = CSRFProtect(app)
-
 
 @app.route('/')
 def main():
