@@ -6,18 +6,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-dns = {
-    'host': os.getenv("HOST"),
-    'user': os.getenv("USERNAME"),
-    'passwd': os.getenv("PASSWORD"),
-    'db': os.getenv("DATABASE"), 
-}
 # dns = {
-#     'user': 'mysql',
-#     'host': 'localhost',
-#     'password': '123abc',
-#     'database': 'kaggle'
+#     'host': os.getenv("HOST"),
+#     'user': os.getenv("USERNAME"),
+#     'passwd': os.getenv("PASSWORD"),
+#     'db': os.getenv("DATABASE"), 
 # }
+dns = {
+    'user': 'mysql',
+    'host': 'localhost',
+    'password': '123abc',
+    'database': 'kaggle'
+}
 
 db = MySQL(**dns)
 
